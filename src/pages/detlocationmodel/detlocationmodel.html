@@ -1,0 +1,41 @@
+<!--
+  Generated template for the DetlocationmodelPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>set location model</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <agm-map [latitude]="baselocation.latitude"
+           [longitude]="baselocation.longitude"
+           [zoom]="15"
+           (mapClick)="placeMarker($event)">
+    <agm-marker 
+    *ngIf="locationset"
+    [latitude]="baselocation.latitude"
+    [longitude]="baselocation.longitude" ></agm-marker>
+  </agm-map>
+    <ion-row>
+        <ion-col col-6>
+          <button ion-button block color="secondary" [disabled]="!locationset" icon-left (click)="setlocation()">
+            set
+          </button>
+        </ion-col>
+        <ion-col col-6>
+            <button ion-button block color="danger" icon-left (click)="cancel()">
+              cancel
+            </button>
+          </ion-col>
+        </ion-row>
+
+</ion-content>
